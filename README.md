@@ -4,61 +4,39 @@ My project usinng ds3231 rtc module, dht22 and lcd i2c. It use buzzer for an ala
 I programmed a lcd menu, controlling by two buttons. To reset Arduino Uno click two buttons for 5 seconds. To enter for a menu you have to click one of two buttons.
 
 
-How to connect?<br>
-
-
+How to connect?<br><br>
     lcd:<br>
         GND → GND<br>
         VCC → 5v<br>
         SDA → SDA<br>
-        SCL → SCL<br>
-
-        
+        SCL → SCL<br><br>
     ds3231:<br>
         GND → GND<br>
         VCC → 5v<br>
         SDA → SDA<br>
-        SCL → SCL<br>
-
-        
+        SCL → SCL<br><br>
     dht22:<br>
         + → 3.3V<br>
         - → GND<br>
-        OUT → GPIO 2<br>
-
-        
+        OUT → GPIO 2<br><br>
     buzzer:<br>
         + → NC (NORMALLY CLOSED)<br>
         - → GND<br>
-        OUT → GPIO 12<br>
-
-        
+        OUT → GPIO 12<br><br>
     RED BUTTON:<br>
         VCC → 5V<br>
         GND → GND<br>
-        OUT → GPIO 8<br>
-
-        
+        OUT → GPIO 8<br><br>
     YELLOW BUTTON:<br>
         VCC → 5V<br>
         GND → GND<br>
-        OUT → GPIO 7<br>
-
-        
-    RELAY:<br>
-
-    
-        CONTROL CIRCULATION:<br>
-
-        
+        OUT → GPIO 7<br><br>
+    RELAY:<br><br>
+        CONTROL CIRCULATION:<br><br>
             VCC → 3.3V<br>
             GND → GND<br>
-            IN → GPIO 4<br>
-
-            
-        OUTPUT CIRCULATION:<br>
-
-        
+            IN → GPIO 4<br><br>
+        OUTPUT CIRCULATION:<br><br>
             COMMMON CONTACT → 5V<br>
             NORMALLY CLOSED → BUZZER'S +<br> 
             NORMALLY OPEN - NOT CONNECTED<br>
