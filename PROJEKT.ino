@@ -10,9 +10,8 @@ DHT dht(DHTPIN, DHTTYPE);
 LiquidCrystal_I2C lcd(0x27,20,4);
 DS3231 clock;
 RTCDateTime dt;
-
-bool bre = false;
 bool display_state = true;
+bool bre = false;
 int buzzer = 12;
 int relay = 4;
 
@@ -92,7 +91,7 @@ void menu(){ //void using to controll menu (with menu we can set time and set or
   lcd.setCursor(0,2);
   lcd.print("Disarm the alarm");
   lcd.setCursor(0,3);
-  lcd.print("Back");
+  lcd.print("Turn display off");
   lcd.setCursor(19,0);
   lcd.print("*");
   int control = 0;
@@ -132,11 +131,17 @@ void menu(){ //void using to controll menu (with menu we can set time and set or
        }
      }
           
-
+    if(digitalRead(8) && digitalRead(7)){
+      lcd.clear();
+      break;
+      }
     if(digitalRead(8)){
       if(control == 3){
         lcd.clear();
-        break;
+        lcd.noDisplay();
+        lcd.noBacklight();
+        display_state = false;
+        return;
         }else{
           if(control == 2){
             lcd.clear();
@@ -367,7 +372,7 @@ void menu(){ //void using to controll menu (with menu we can set time and set or
               lcd.setCursor(0,2);
               lcd.print("Disarm the alarm");
               lcd.setCursor(0,3);
-              lcd.print("Back");
+              lcd.print("Turn display off");
               lcd.setCursor(19,0);
               lcd.print("*");
               control = 0;
@@ -655,7 +660,7 @@ void menu(){ //void using to controll menu (with menu we can set time and set or
               lcd.setCursor(0,2);
               lcd.print("Disarm the alarm");
               lcd.setCursor(0,3);
-              lcd.print("Back");
+              lcd.print("Turn display off");
               lcd.setCursor(19,0);
               lcd.print("*");
               control = 0;
@@ -683,13 +688,35 @@ void loop() { //void using to write date, time and sensor date to a display and 
         if(start_time_reset == 0){start_time_reset == millis();}
         if (millis() - start_time_reset > 7500) {
             resetFunc();
-          }else if(digitalRead(8) != true && digitalRead(7) != true){menu();delay(500);}
+          }else if(digitalRead(8) != true && digitalRead(7) != true){
+            if(display_state == true){
+              menu();
+              delay(500);
+              }else {
+                lcd.display();
+                lcd.backlight();
+                display_state = true;
+                delay(10);
+                Serial.println("ok1");
+              }
+          }
       
-      }else{menu();delay(500);}
+      }else{
+        if(display_state == true){
+          menu();
+          delay(500);
+        }else{
+          lcd.display();
+          lcd.backlight();
+          display_state = true;
+          delay(10);
+          Serial.println("ok2");
+          }
+      }
     }
     start_time3 = millis();
   }
-  if (millis() - start_time > timer_delay | start_time == 0) {
+  if ((millis() - start_time > timer_delay | start_time == 0)&& display_state == true) {
     if (clock.isAlarm1() || alarm_flag == true){
       alarm_flag = true;
       if(digitalRead(7)|| digitalRead(8)){
@@ -765,7 +792,7 @@ void loop() { //void using to write date, time and sensor date to a display and 
     
     start_time = millis();
   }
-  if (millis() - start_time2 > timer_delay*10 | start_time2 == 0) {
+  if ((millis() - start_time2 > timer_delay*10 | start_time2 == 0)&& display_state == true) {
     lcd.setCursor(0,2);
     float t = dht.readTemperature();
     float h = dht.readHumidity();
