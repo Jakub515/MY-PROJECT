@@ -10,33 +10,33 @@ How to connect?<br>
     VCC → 5v<br>
     SDA → SDA<br>
     SCL → SCL<br>
-  ds3231:
-    GND → GND
-    VCC → 5v
-    SDA → SDA
-    SCL → SCL
-  dht22:
-    + → 3.3V
-    - → GND
-    OUT → GPIO 2
-  buzzer:
-    + → NC (NORMALLY CLOSED)
-    - → GND
-    OUT → GPIO 12
-  RED BUTTON:
-    VCC → 5V
-    GND → GND
-    OUT → GPIO 8
-  YELLOW BUTTON:
-    VCC → 5V
-    GND → GND
-    OUT → GPIO 7
-  RELAY:
-    CONTROL CIRCULATION:
-      VCC → 3.3V
-      GND → GND
-      IN → GPIO 4
-    OUTPUT CIRCULATION:
-      COMMMON CONTACT → 5V
-      NORMALLY CLOSED → BUZZER'S + 
-      NORMALLY OPEN - NOT CONNECTED
+  ds3231:<br>
+    GND → GND<br>
+    VCC → 5v<br>
+    SDA → SDA<br>
+    SCL → SCL<br>
+  dht22:<br>
+    + → 3.3V<br>
+    - → GND<br>
+    OUT → GPIO 2<br>
+  buzzer:<br>
+    + → NC (NORMALLY CLOSED)<br>
+    - → GND<br>
+    OUT → GPIO 12<br>
+  RED BUTTON:<br>
+    VCC → 5V<br>
+    GND → GND<br>
+    OUT → GPIO 8<br>
+  YELLOW BUTTON:<br>
+    VCC → 5V<br>
+    GND → GND<br>
+    OUT → GPIO 7<br>
+  RELAY:<br>
+    CONTROL CIRCULATION:<br>
+      VCC → 3.3V<br>
+      GND → GND<br>
+      IN → GPIO 4<br>
+    OUTPUT CIRCULATION:<br>
+      COMMMON CONTACT → 5V<br>
+      NORMALLY CLOSED → BUZZER'S +<br> 
+      NORMALLY OPEN - NOT CONNECTED<br>
