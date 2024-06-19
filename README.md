@@ -5,7 +5,6 @@ I programmed a lcd menu, controlling by two buttons. To reset Arduino Uno click 
 
 
 How to connect?
-
   lcd:
     GND → GND
     VCC → 5v
