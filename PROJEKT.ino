@@ -62,7 +62,6 @@ void elec_init() { // void using to init lcd, ds3231, dht22 and define buzzer, b
   lcd.createChar(0, degree);
   lcd.createChar(1, underline);
   lcd.noCursor();
-  digitalWrite(13, LOW);
   pinMode(buzzer, OUTPUT);
   pinMode(relay, OUTPUT);
   digitalWrite(relay, HIGH );
