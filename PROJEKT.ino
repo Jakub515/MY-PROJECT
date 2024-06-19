@@ -161,7 +161,7 @@ void menu(){ //void using to controll menu (with menu we can set time and set or
             lcd.setCursor(0,2);
             lcd.print("Disarm the alarm");
             lcd.setCursor(0,3);
-            lcd.print("Back");
+            lcd.print("Turn display off");
             lcd.setCursor(19,0);
             lcd.print("*");
             control = 0;
